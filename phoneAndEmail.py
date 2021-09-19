@@ -18,7 +18,16 @@ phoneRegex = re.compile(r'''
 
 	''', re.VERBOSE)
 
-#TODO: Create a regex for email adress
+# Create a regex for email adress
+
+emailRegex = re.compile(r'''
+
+[a-zA-Z0-9_.+-]+										#name
+@														#@ symbol
+[a-zA-Z0-9_.+-]+										#domain and extension
+
+
+	''', re.VERBOSE)
 
 #TODO: Get the text off the clipboard
 
