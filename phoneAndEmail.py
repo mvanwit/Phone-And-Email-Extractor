@@ -6,7 +6,7 @@ import re, pyperclip
 
 phoneRegex = re.compile(r'''
 (
-( 0\d | \+\d\d\s?\d | 00\s?\d\d\s?\d)			#first 2 digits -or- international area code with plus and first digit -or- intenational area code with space and first digit
+( (\(\d\d\)\s)? 0\d | \+\d\d\s?\d | 00\s?\d\d\s?\d)			#first 2 digits -or- international area code with plus and first digit -or- intenational area code with space and first digit
 (\s | \.)?										#space or dot separator
 (\d\d)											#second 2 digits
 (\s | \.)?										#space or dot separator
@@ -23,7 +23,7 @@ phoneRegex = re.compile(r'''
 emailRegex = re.compile(r'''
 
 [a-zA-Z0-9_.+-]+										#name
-@														#@ symbol
+\[?@\]?													#@ symbol
 [a-zA-Z0-9_.+-]+										#domain and extension
 
 
@@ -43,4 +43,8 @@ allPhoneNumbers = []
 for phoneNumber in extractedPhone:
 	allPhoneNumbers.append(phoneNumber[0])
 
-#TODO: Copy the extracted email/phone to the clipboard
+# Copy the extracted email/phone to the clipboard
+
+result = '\n'.join(allPhoneNumbers) + '\n' + '\n'.join(extractedEmail)
+
+pyperclip.copy(result)
