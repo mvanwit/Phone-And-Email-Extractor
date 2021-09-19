@@ -15,4 +15,4 @@ For this project, you will need Python3 installed and the pyperclip module.
 
 ## Running the app
 
-```phoneextract```
+```phoneAndEmail```
